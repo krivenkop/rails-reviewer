@@ -17,6 +17,49 @@
     letter-spacing: 1px
     line-height: 45px
 
+  &__nav
+    padding: 0
+    margin: 0
+
+  &__user-card
+    align-self: center
+
+.nav
+  margin: 0 0 0 20px
+  &__list
+    padding: 0
+    margin: 0
+    display: flex
+    justify-content: flex-start
+    list-style-type: none
+
+  &__link
+    position: relative
+    display: block
+    line-height: 70px
+    height: 70px
+    padding: 0 15px
+    color: #999999
+    text-decoration: none
+    transition: background-color 0.4s linear
+    &--active
+      &::after
+        content: ''
+        position: absolute
+        width: 100%
+        height: 3px
+        background-color: $accent-blue
+        left: 0
+        bottom: 0
+    
+    &:hover
+      background-color: #efefef
+      transition: background-color 0.4s linear
+
+
+  &__link-text
+    padding-left: 5px
+
 .logo
   display: inline-flex
   flex-direction: column
@@ -39,3 +82,69 @@
     font-size: 14px
     color: #444444
 
+
+.user-card
+  display: flex
+  justify-content: center
+  align-items: center
+  height: 50px
+  padding: 5px 10px
+  border: 1px solid #cccccc
+  border-radius: 3px
+  cursor: pointer
+
+  &__image
+    height: 30px
+    width: 30px
+    border-radius: 50%
+
+  &__text
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-left: 8px
+
+  &__name
+    padding: 0
+    margin: 0
+    font-size: 13px
+
+  &__type
+    padding: 0
+    margin: 0
+    font-size: 11px
+    text-transform: uppercase
+    color: $accent-blue
+
+  &__down
+    font-size: 8px
+    margin-left: 15px
+    color: #bbbbbb
+
+.notify
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  align-self: center
+  height: 50px
+  width: 50px
+  border: 1px solid #cccccc
+  border-radius: 3px
+  cursor: pointer
+  margin-right: 30px
+
+  &--active
+    &::after
+      content: ''
+      position: absolute
+      right: 10px
+      top: 10px
+      height: 7px
+      width: 7px
+      border-radius: 50%
+      background-color: $accent-blue
+
+  &__icon
+    font-size: 22px
+    color: #999999

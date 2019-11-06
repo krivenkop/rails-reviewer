@@ -1,0 +1,43 @@
+<header class="header header--guest">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 d-flex justify-content-between">
+        <div class="d-flex">
+          <a class="header__logo logo" href="<%= root_path %>">
+            <h3 class="logo__title">reviewer</h3>
+            <p class="logo__subtitle">The top review platform</p>
+          </a>
+
+          <nav class="header__nav nav">
+            <ul class="nav__list">
+              <li class="nav__item">
+                <%= active_link_with_block root_path, class: 'nav__link', active: 'nav__link--active' do %>
+                  <%= fa_icon 'home' %> <span class="nav__link-text">Home</span>
+                <% end %>
+              </li>
+              <li class="nav__item">
+                <%= active_link_with_block admin_path, class: 'nav__link', active: 'nav__link--active' do %>
+                  <%= fa_icon 'user-o' %> <span class="nav__link-text">Admin</span>
+                <% end %>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <div class="header__notify notify notify--active">
+            <%= fa_icon 'bell-o', class: 'notify__icon' %>
+          </div>
+          <div class="header__user-card user-card">
+            <%= image_tag 'avatar.jpg', class: 'user-card__image' %>
+            <div class="user-card__text">
+              <p class="user-card__name"><%= current_user.full_name %></p>
+              <p class="user-card__type">Pro</p>
+            </div>
+            <%= fa_icon 'chevron-down', class: 'user-card__down' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
