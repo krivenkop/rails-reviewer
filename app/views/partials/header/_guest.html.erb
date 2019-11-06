@@ -1,0 +1,23 @@
+<header class="header header--guest">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <a class="header__logo logo" href="<%= root_path %>">
+          <h3 class="logo__title">reviewer</h3>
+          <p class="logo__subtitle">The top review platform</p>
+        </a>
+      </div>
+      <div class="col-md-9 d-flex justify-content-end">
+        <% if current_page?(new_user_registration_path) %>
+          <a href="<%= user_session_path %>" class="header__auth-btn">
+            Login
+          </a>
+        <% elsif current_page?(user_session_path) %>
+          <a href="<%= new_user_registration_path %>" class="header__auth-btn">
+            Register
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</header>
