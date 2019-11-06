@@ -1,0 +1,66 @@
+<section class="login">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="login__hot-title">Hot Reviews</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="reviews">
+          <div class="reviews__list">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="login__form form">
+          <div class="form__monobrow"></div>
+
+          <h1 class="form__title">log in</h1>
+
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form__body' }) do |f| %>
+            <div class="row mb-3">
+              <div class="col-sm-12">
+                <%= f.label :email, class: 'd-none' %>
+                <%= f.email_field :email, autofocus: true,
+                                  autocomplete: "email",
+                                  placeholder: "Email",
+                                  class: 'form__text-field' %>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-sm-12">
+                <%= f.label :password, class: 'd-none' %>
+                <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "new-password",
+                                     placeholder: "Password",
+                                     class: 'form__text-field' %>
+              </div>
+            </div>
+
+            <% if devise_mapping.rememberable? %>
+              <div class="row mb-5">
+                <div class="col-sm-12">
+                  <%= f.check_box :remember_me, class: "form__checkbox" %>
+                  <%= f.label :remember_me %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <%= f.submit "log in", class: "form__submit" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
