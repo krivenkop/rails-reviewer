@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-  get '/admin', to: 'home#index', as: 'admin'
+  get '/admin', to: 'admin/home#index', as: 'admin'
 
   devise_for :users, path: '',
              path_names: { sign_out: :logout, sign_in: :login },
