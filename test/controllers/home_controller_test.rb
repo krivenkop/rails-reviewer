@@ -1,9 +1,15 @@
 require 'test_helper'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+
   test "should get index with title" do
-    get home_index_url
-    assert_select 'h1', 'create account'
+    @user = users(:one)
+
+    sign_in @user
+
+    get root_path
+    assert_select 'section', 'Home'
   end
 
 end
