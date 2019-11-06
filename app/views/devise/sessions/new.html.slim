@@ -1,0 +1,43 @@
+section.login
+  .container
+    .row
+      .col-md-12
+        h2.login__hot-title
+          | Hot Reviews
+    .row
+      .col-md-7
+        .reviews
+          .reviews__list
+
+      .col-md-5
+        .login__form.form
+          .form__monobrow
+          h1.form__title
+            | log in
+          = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form__body' }) do |f|
+            .row.mb-3
+              .col-sm-12
+                = f.label :email, class: 'd-none'
+                = f.email_field :email, autofocus: true,
+                -                                   autocomplete: "email",
+                -                                   placeholder: "Email",
+                -                                   class: 'form__text-field'
+            .row.mb-3
+              .col-sm-12
+                = f.label :password, class: 'd-none'
+                - if @minimum_password_length
+                  em
+                    | (
+                    = @minimum_password_length
+                    |  characters minimum)
+                = f.password_field :password, autocomplete: "new-password",
+                -                                      placeholder: "Password",
+                -                                      class: 'form__text-field'
+            - if devise_mapping.rememberable?
+              .row.mb-5
+                .col-sm-12
+                  = f.check_box :remember_me, class: "form__checkbox"
+                  = f.label :remember_me
+            .row
+              .col-sm-12
+                = f.submit "log in", class: "form__submit"
