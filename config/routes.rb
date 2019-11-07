@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :countries
+  end
   root to: 'home#index'
 
   get '/admin', to: 'admin/home#index', as: 'admin'

@@ -40,8 +40,7 @@ group :development, :test do
 
   gem 'factory_bot_rails'
 
-  gem 'rspec-rails', '~> 3.8'
-  gem 'rspec-support', '~> 3.9'
+  gem "rspec-rails", "~> 4.0.0.beta3"
 end
 
 group :development do
