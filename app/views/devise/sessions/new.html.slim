@@ -18,10 +18,10 @@ section.login
             .row.mb-3
               .col-sm-12
                 = f.label :email, class: 'd-none'
-                = f.email_field :email, autofocus: true,
-                -                                   autocomplete: "email",
-                -                                   placeholder: "Email",
-                -                                   class: 'form__text-field'
+                = f.email_field :email, autofocus: true, \
+                                autocomplete: "email", \
+                                placeholder: "Email", \
+                                class: 'form__text-field'
             .row.mb-3
               .col-sm-12
                 = f.label :password, class: 'd-none'
@@ -30,9 +30,9 @@ section.login
                     | (
                     = @minimum_password_length
                     |  characters minimum)
-                = f.password_field :password, autocomplete: "new-password",
-                -                                      placeholder: "Password",
-                -                                      class: 'form__text-field'
+                = f.password_field :password, autocomplete: "new-password", \
+                                    placeholder: "Password", \
+                                    class: 'form__text-field'
             - if devise_mapping.rememberable?
               .row.mb-5
                 .col-sm-12

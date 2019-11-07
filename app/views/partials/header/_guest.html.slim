@@ -2,19 +2,13 @@ header.header.header--guest
   .container
     .row
       .col-md-3
-        |  <a class="header__logo logo" href="
-        = root_path
-        | "> 
-        h3.logo__title
-          | reviewer
-        p.logo__subtitle
-          | The top review platform
+        = link_to root_path, class: 'header__logo logo'
+          h3.logo__title
+            | reviewer
+            p.logo__subtitle
+              | The top review platform
       .col-md-9.d-flex.justify-content-end
         - if current_page?(new_user_registration_path)
-          |  <a href="
-          = user_session_path
-          | " class="header__auth-btn"> Login 
+          = link_to 'Login', root_path, class: 'header__auth-btn'
         - elsif current_page?(user_session_path)
-          |  <a href="
-          = new_user_registration_path
-          | " class="header__auth-btn"> Register 
+          = link_to 'Register', new_user_registration_path, class: 'header__auth-btn'

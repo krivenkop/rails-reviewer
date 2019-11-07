@@ -3,25 +3,19 @@ header.header.header--guest
     .row
       .col-md-12.d-flex.justify-content-between
         .d-flex
-          |  <a class="header__logo logo" href="
-          = root_path
-          | "> 
-          h3.logo__title
-            | reviewer
-          p.logo__subtitle
-            | The top review platform
+          = link_to root_path, class: 'header__logo logo' do
+            h3.logo__title reviewer
+            p.logo__subtitle The top review platform
           nav.header__nav.nav
             ul.nav__list
               li.nav__item
                 = active_link_with_block root_path, class: 'nav__link', active: 'nav__link--active' do
                   = fa_icon 'home'
-                  span.nav__link-text
-                    | Home
+                  span.nav__link-text Home
               li.nav__item
                 = active_link_with_block admin_path, class: 'nav__link', active: 'nav__link--active' do
                   = fa_icon 'user-o'
-                  span.nav__link-text
-                    | Admin
+                  span.nav__link-text Admin
               li.nav__item
                 = link_to 'Logout', destroy_user_session_path, class: 'nav__link', method: :delete
         .d-flex.justify-content-end
