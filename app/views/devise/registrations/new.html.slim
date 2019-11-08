@@ -31,21 +31,32 @@ section.register
                   = f.text_field :first_name, autofocus: true,\
                                   autocomplete: "first_name", \
                                   placeholder: "First Name", \
-                                  class: 'form__text-field'
+                                  class: 'form__text-field', \
+                                  required: 'required'
               .col-md-6.col-sm-12
                 .field
                   = f.label :last_name, class: 'd-none'
                   = f.text_field :last_name, autofocus: true, \
                                   autocomplete: "last_name", \
                                   placeholder: "Last Name", \
-                                  class: 'form__text-field'
+                                  class: 'form__text-field', \
+                                  required: 'required'
+            .row.mb-3
+              .col-sm-12
+                = f.label :username, class: 'd-none'
+                = f.email_field :username, autofocus: true, \
+                                            autocomplete: "username", \
+                                            placeholder: "Username", \
+                                            class: 'form__text-field', \
+                                            required: 'required'
             .row.mb-3
               .col-sm-12
                 = f.label :email, class: 'd-none'
                 = f.email_field :email, autofocus: true, \
                                 autocomplete: "email", \
                                 placeholder: "Email", \
-                                class: 'form__text-field'
+                                class: 'form__text-field', \
+                                required: 'required'
             .row.mb-3
               .col-sm-12
                 = f.label :password, class: 'd-none'
@@ -55,15 +66,17 @@ section.register
                     = @minimum_password_length
                     |  characters minimum)
                 = f.password_field :password, autocomplete: "new-password", \
-                                   placeholder: "Password", \
-                                   class: 'form__text-field'
+                                    placeholder: "Password", \
+                                    class: 'form__text-field', \
+                                    required: 'required'
             .row.mb-4
               .col-sm-12
                 = f.label :password_confirmation, class: 'd-none'
                 = f.password_field :password_confirmation, \
-                                   autocomplete: "new-password", \
-                                   placeholder: "Repeat password", \
-                                   class: 'form__text-field'
+                                    autocomplete: "new-password", \
+                                    placeholder: "Repeat password", \
+                                    class: 'form__text-field', \
+                                    required: 'required'
             .row
               .col-sm-12
                 = f.submit "Sign up", class: "form__submit"
