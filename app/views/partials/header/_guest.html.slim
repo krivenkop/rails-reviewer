@@ -3,10 +3,8 @@ header.header.header--guest
     .row
       .col-md-3
         = link_to root_path, class: 'header__logo logo'
-          h3.logo__title
-            | reviewer
-            p.logo__subtitle
-              | The top review platform
+          h3.logo__title reviewer
+          p.logo__subtitle The top review platform
       .col-md-9.d-flex.justify-content-end
         - if current_page?(new_user_registration_path)
           = link_to 'Login', root_path, class: 'header__auth-btn'
