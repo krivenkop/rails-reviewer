@@ -44,7 +44,7 @@ section.register
             .row.mb-3
               .col-sm-12
                 = f.label :username, class: 'd-none'
-                = f.email_field :username, autofocus: true, \
+                = f.text_field :username, autofocus: true, \
                                             autocomplete: "username", \
                                             placeholder: "Username", \
                                             class: 'form__text-field', \
