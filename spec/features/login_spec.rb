@@ -4,7 +4,7 @@ feature "User can login on website", %q{
   For access to posting and seeing of reviews
   user need to login on website
 } do
-  given(:user) { User.create(email: 'test@gmail.com', password: '12345678', first_name: 'Alex', last_name: 'Jobs') }
+  given(:user) { User.create(attributes_for(:user)) }
 
   scenario "Registered user tried to login" do
     visit new_user_session_path
