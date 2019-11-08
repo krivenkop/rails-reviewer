@@ -6,7 +6,7 @@ header.header.header--guest
           h3.logo__title reviewer
           p.logo__subtitle The top review platform
       .col-md-9.d-flex.justify-content-end
-        - if current_page?(new_user_registration_path)
+        - if current_page?(new_user_registration_path) || controller.controller_name == 'registrations'
           = link_to 'Login', root_path, class: 'header__auth-btn'
-        - elsif current_page?(user_session_path)
+        - elsif current_page?(user_session_path) || controller.controller_name == 'sessions'
           = link_to 'Register', new_user_registration_path, class: 'header__auth-btn'
