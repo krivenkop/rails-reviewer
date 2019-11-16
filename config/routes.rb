@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    get '/', to: 'admin/home#index', as: 'index'
+    get '/', to: 'home#index', as: 'index'
     resources :countries
   end
   root to: 'home#index'
