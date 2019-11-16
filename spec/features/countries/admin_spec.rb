@@ -18,7 +18,7 @@ feature "Add new country via admin panel", %q{
     end
 
     scenario "Admin can see a country from db" do
-      country = Country.new(attributes_for :country)
+      country = create :country
 
       visit admin_countries_path
 
