@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   def full_name
-    first_name + ' ' + last_name
+    "#{first_name} #{last_name}"
+  end
+
+  def admin?
+    type == 'Admin'
   end
 end
