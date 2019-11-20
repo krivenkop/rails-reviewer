@@ -36,6 +36,13 @@ class Admin::CountriesController < ApplicationController
     redirect_to admin_countries_path
   end
 
+  def update_all
+    Country.load_from_api Countries::ListFetcher.fetch
+
+    flash[:notice] = 'Countries have updated successfully'
+    redirect_to admin_countries_path
+  end
+
   private
 
   def country_params
