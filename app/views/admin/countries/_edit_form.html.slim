@@ -1,0 +1,6 @@
+= form_with model: [:admin, country], local: true, class: 'admin__form admin-form' do |country_form|
+  = render 'form_body', country_form: country_form, country: country
+  .row
+    .col-sm-12
+      .d-flex.justify-content-end
+        = country_form.submit 'Edit', class: 'admin-form__submit'

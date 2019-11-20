@@ -1,2 +1,23 @@
-h1 Admin::Countries#index
-p Find me in app/views/admin/countries/index.html.slim
+section.users
+  .container
+    .row
+      .col-sm-12
+        .admin-list-panel
+          h1.admin-list-panel__title Countries
+          = link_to 'Add', new_admin_country_path, class: 'admin-list-panel__btn'
+
+    .row
+      .col-md-12
+        .admin-list.countries
+          - unless @countries.empty?
+            table#admin-countries-table.table
+              thead
+                tr
+                  th ID
+                  th Name
+                  th Alpha Three Code
+                  th Actions
+              tbody
+                = render @countries
+          - else
+            h2.countries__empty No items

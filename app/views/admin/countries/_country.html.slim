@@ -1,0 +1,6 @@
+tr.admin-list__item
+  td = country.id
+  td = country.name
+  td = country.alpha_three_code
+  td
+    = link_to 'Edit', edit_admin_country_path(country), class: 'admin-list__edit'

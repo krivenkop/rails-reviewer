@@ -1,0 +1,15 @@
+.row
+  .col-sm-12.col-md-6
+    .admin-form__group.admin-form__group
+      = country_form.label :name, class: 'admin-form__label'
+      = country_form.text_field :name,
+              class: "admin-form__input #{ 'admin-form__input--error' unless country.errors[:name].empty? }"
+      - if country.errors[:name]
+        p.admin-form__error= country.errors.full_messages_for(:name).first
+  .col-sm-12.col-md-6
+    .admin-form__group.admin-form__group
+      = country_form.label :alpha_three_code, class: 'admin-form__label'
+      = country_form.text_field :alpha_three_code,
+              class: "admin-form__input #{ 'admin-form__input--error' unless country.errors[:alpha_three_code].empty? }"
+      - if country.errors[:alpha_three_code]
+        p.admin-form__error= country.errors.full_messages_for(:alpha_three_code).first
