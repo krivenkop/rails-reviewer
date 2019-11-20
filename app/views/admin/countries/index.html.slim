@@ -19,5 +19,8 @@ section.users
                   th Actions
               tbody
                 = render @countries
+            .admin-list__pagination.admin-pagination
+              = paginate @countries, views_prefix: 'admin'
           - else
             h2.countries__empty No items
+

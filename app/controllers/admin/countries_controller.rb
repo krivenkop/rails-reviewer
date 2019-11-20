@@ -1,6 +1,6 @@
 class Admin::CountriesController < ApplicationController
   def index
-    @countries = Country.all
+    @countries = Country.page(params[:page]).per(10)
   end
 
   def show
