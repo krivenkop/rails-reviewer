@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Admin::CountriesController, type: :controller do
   let(:country) { create(:country) }
+  let(:user) { create(:user, :admin) }
+  before { sign_in user }
 
   describe "GET #index" do
     let(:questions) { create_list(:country, 2) }
@@ -14,13 +16,6 @@ RSpec.describe Admin::CountriesController, type: :controller do
 
     it "renders template index" do
       expect(response).to render_template :index
-    end
-  end
-
-  describe "GET #show" do
-    it "renders template show" do
-      get :show, params: { id: country }
-      expect(response).to render_template :show
     end
   end
 
