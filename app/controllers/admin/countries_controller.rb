@@ -2,20 +2,22 @@ class Admin::CountriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @countries = Country.page(params[:page]).per(10)
-  end
-
-  def show
+    @countries = policy_scope(
+        Country,
+        policy_scope_class: Admin::CountryPolicy::Scope
+    ).page(params[:page]).per(10)
   end
 
   def new
     @country = Country.new
+    authorize [:admin, country]
   end
 
   def create
-    country = Country.new(country_params)
+    @country = Country.new(country_params)
+    authorize [:admin, country]
 
-    if country.save
+    if @country.save
       redirect_to admin_countries_path
     else
       render :new
@@ -23,9 +25,12 @@ class Admin::CountriesController < ApplicationController
   end
 
   def edit
+    authorize [:admin, country]
   end
 
   def update
+    authorize [:admin, country]
+
     if country.update(country_params)
       redirect_to admin_countries_path
     else
@@ -34,6 +39,8 @@ class Admin::CountriesController < ApplicationController
   end
 
   def destroy
+    authorize [:admin, country]
+
     country.delete
     redirect_to admin_countries_path
   end
