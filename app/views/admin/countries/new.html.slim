@@ -1,2 +1,11 @@
-h1 Admin::Countries#new
-p Find me in app/views/admin/countries/new.html.slim
+.container
+  .row
+    .col-sm-12
+      .admin-list-panel
+        h1.admin-list-panel__title new country
+        = link_to 'Back to list', admin_countries_path, class: 'admin-list-panel__btn'
+
+  .row
+    .col-sm-12
+      .admin-form__container
+        = render 'add_form'

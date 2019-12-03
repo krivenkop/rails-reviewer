@@ -9,9 +9,10 @@ require("@rails/activestorage").start();
 require("channels");
 
 import 'normalize.scss/normalize.scss';
-import 'bootstrap/dist/css/bootstrap-grid.min.css';
+import 'bootstrap/scss/bootstrap.scss'
 require('../sass/main.sass');
 
+require('materialize-css/dist/js/materialize.min');
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

@@ -1,0 +1,8 @@
+tr.admin-list__item
+  td = country.id
+  td = country.name
+  td = country.alpha_three_code
+  td
+    = link_to 'Edit', edit_admin_country_path(country), class: 'admin-list__btn admin-list__btn--edit'
+    = link_to 'Destroy', admin_country_path(country), method: :delete, class: 'admin-list__btn admin-list__btn--del',
+            data: {confirm: "Are you sure?"}

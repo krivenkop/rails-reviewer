@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'home#index', as: 'index'
-    resources :countries
+
+    resources :countries, constraints: { id: /[0-9]+/ },
+              except: [:show]
+    get 'countries/update-all', to: 'countries#update_all', as: 'update_all'
   end
   root to: 'home#index'
 

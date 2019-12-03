@@ -12,9 +12,7 @@ feature "Add new country via admin panel", %q{
     scenario "Admin see an empty list if no items in db" do
       visit admin_countries_path
 
-      within 'table.users__table' do
-        expect(page).to have_content 'No items'
-      end
+      expect(page).to have_content 'No items'
     end
 
     scenario "Admin can see a country from db" do
@@ -22,7 +20,7 @@ feature "Add new country via admin panel", %q{
 
       visit admin_countries_path
 
-      within 'table.users__table' do
+      within '#admin-countries-table' do
         expect(page).to have_content country.id
         expect(page).to have_content country.name
         expect(page).to have_content country.alpha_three_code
@@ -32,20 +30,18 @@ feature "Add new country via admin panel", %q{
     context "Admin adds new country" do
       background do
         visit admin_countries_path
-        within 'table.users__table' do
-          expect(page).to have_content 'No items'
-        end
+        expect(page).to have_content 'No items'
 
-        click_on 'Add new'
+        click_on 'Add'
       end
 
       scenario "valid country" do
         country = build :country
-        fill_in 'Name', country.name
-        fill_in 'Alpha three code', country.alpha_three_code
+        fill_in 'Name', with: country.name
+        fill_in 'Alpha three code', with: country.alpha_three_code
         click_on 'Add'
 
-        within 'table.users__table' do
+        within '#admin-countries-table' do
           expect(page).to have_content country.name
           expect(page).to have_content country.alpha_three_code
         end
@@ -53,33 +49,32 @@ feature "Add new country via admin panel", %q{
 
       scenario "not valid country" do
         country = build :country
-        fill_in 'Name', country.name
+        fill_in 'Name', with: country.name
         click_on 'Add'
 
-        within 'table.users__table' do
-          expect(page).to have_content 'Alpha three code can not be empty'
+        within '.admin-form' do
+          expect(page).to have_content 'Alpha three code can\'t be blank'
         end
       end
     end
 
 
-    scenario "Admin removes country" do
+    scenario "Admin removes country", :js => true do
       country = create :country
 
       visit admin_countries_path
 
-      within 'table.users__table' do
+      within '#admin-countries-table' do
         expect(page).to have_content country.id
         expect(page).to have_content country.name
         expect(page).to have_content country.alpha_three_code
       end
 
-      click_on '.country__delete'
-      click_on 'Confirm'
-
-      within 'table.users__table' do
-        expect(page).to have_content 'No items'
+      page.accept_confirm do
+        click_on 'Destroy'
       end
+
+      expect(page).to have_content 'NO ITEMS'
     end
   end
 
@@ -88,6 +83,7 @@ feature "Add new country via admin panel", %q{
     background { sign_in user }
 
     scenario "User doesn't have permissions" do
+      pp user.admin?
       visit admin_countries_path
 
       expect(page).to have_content 'You do not have permissions'

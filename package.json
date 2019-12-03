@@ -8,6 +8,7 @@
     "@rails/webpacker": "^4.0.7",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
+    "materialize-css": "^1.0.0-rc.2",
     "normalize.scss": "^0.1.0",
     "turbolinks": "^5.2.0"
   },
