@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_07_144937) do
+ActiveRecord::Schema.define(version: 2019_12_03_185905) do
 
   create_table "countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_144937) do
     t.string "position", default: "", null: false
     t.string "company", default: "", null: false
     t.string "type", default: "", null: false
-    t.string "counrty", default: "", null: false
+    t.string "country", default: "", null: false
     t.string "city", default: "", null: false
     t.string "address", default: "", null: false
     t.string "encrypted_password", default: "", null: false
