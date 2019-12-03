@@ -9,6 +9,10 @@ FactoryBot.define do
       "person#{n}@example.com"
     end
 
+    trait :another_first_name do
+      password { 'Paul' }
+    end
+
     trait :admin do
       type { 'Admin' }
     end
