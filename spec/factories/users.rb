@@ -1,20 +1,24 @@
 FactoryBot.define do
   factory :user do
-    password { '12345678' }
     first_name { 'Alex' }
     last_name { 'Jobs' }
-    username { 'alex_jobs' }
+    password { '12345678' }
+    password_confirmation { '12345678' }
 
     sequence :email do |n|
       "person#{n}@example.com"
     end
 
-    trait :another_first_name do
-      password { 'Paul' }
+    sequence :username do |n|
+      "alex_jobs_#{n}"
     end
 
-    trait :admin do
-      type { 'Admin' }
+    trait :another_first_name do
+      first_name { 'Paul' }
+    end
+
+    trait :invalid_first_name do
+      first_name { '' }
     end
   end
 end
