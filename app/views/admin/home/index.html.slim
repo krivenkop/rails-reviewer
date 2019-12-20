@@ -1,1 +1,9 @@
-| Admin Home
+.container
+  .row
+    .col-sm-12
+      .admin__container
+        ul.admin__links.admin-links
+          li
+            = link_to 'Users', admin_users_path, class: 'admin-links__link'
+          li
+            = link_to 'Countries', admin_countries_path, class: 'admin-links__link'
