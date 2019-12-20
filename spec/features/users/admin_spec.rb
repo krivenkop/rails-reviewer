@@ -6,7 +6,7 @@ feature "Add new user via admin panel", %q{
   user need to login on website and be admin
 } do
   context "User is admin" do
-    given(:admin) { create(:user, :admin) }
+    given(:admin) { create(:admin) }
     background { sign_in admin }
 
     scenario "Admin sees himself if no items in db" do
@@ -53,7 +53,9 @@ feature "Add new user via admin panel", %q{
         fill_in 'Email', with: user.email
         fill_in 'First name', with: user.first_name
         fill_in 'Last name', with: user.last_name
-        fill_in 'Password', with: attributes_for(user)[:password]
+        fill_in 'Username', with: user.username
+        fill_in 'Password', with: attributes_for(:user)[:password]
+        fill_in 'Password confirmation', with: attributes_for(:user)[:password]
         click_on 'Add'
 
         within '#admin-users-table' do
@@ -70,36 +72,9 @@ feature "Add new user via admin panel", %q{
         click_on 'Add'
 
         within '.admin-form' do
-          expect(page).to have_no_content user.id
-          expect(page).to have_no_content user.email
-          expect(page).to have_no_content user.first_name
-          expect(page).to have_no_content user.last_name
+          expect(page).to have_content 'First name can\'t be blank'
+          expect(page).to have_content 'Last name can\'t be blank'
         end
-      end
-    end
-
-
-    scenario "Admin removes user", :js => true do
-      user = create :user
-
-      visit admin_users_path
-
-      within '#admin-users-table' do
-        expect(page).to have_content user.id
-        expect(page).to have_content user.email
-        expect(page).to have_content user.first_name
-        expect(page).to have_content user.last_name
-      end
-
-      page.accept_confirm do
-        click_on 'Destroy'
-      end
-
-      within '.admin-form' do
-        expect(page).to have_no_content user.id
-        expect(page).to have_no_content user.email
-        expect(page).to have_no_content user.first_name
-        expect(page).to have_no_content user.last_name
       end
     end
   end
