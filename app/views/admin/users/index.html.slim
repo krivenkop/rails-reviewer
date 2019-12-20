@@ -1,0 +1,29 @@
+section.users
+  .container
+    .row
+      .col-sm-12
+        .admin-list-panel
+          h1.admin-list-panel__title Users
+          = link_to 'Add', new_admin_user_path, class: 'admin-list-panel__btn'
+
+    .row
+      .col-md-12
+        .admin-list.users
+          - unless @users.empty?
+            table#admin-users-table.table
+              thead
+                tr
+                  th ID
+                  th Username
+                  th First name
+                  th Last name
+                  th Email
+                  th Type
+                  th Actions
+              tbody
+                = render partial: 'admin/users/user', collection: @users
+            .admin-list__pagination.admin-pagination
+              = paginate @users, views_prefix: 'admin'
+          - else
+            h2.users__empty No items
+

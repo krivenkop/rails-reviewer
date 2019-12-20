@@ -1,0 +1,82 @@
+.row
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :first_name, class: 'admin-form__label'
+      = user_form.text_field :first_name,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:first_name].empty? }"
+      - if user.errors[:first_name]
+        p.admin-form__error= user.errors.full_messages_for(:first_name).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :last_name, class: 'admin-form__label'
+      = user_form.text_field :last_name,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:last_name].empty? }"
+      - if user.errors[:last_name]
+        p.admin-form__error= user.errors.full_messages_for(:last_name).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :username, class: 'admin-form__label'
+      = user_form.text_field :username,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:username].empty? }"
+      - if user.errors[:username]
+        p.admin-form__error= user.errors.full_messages_for(:username).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :position, class: 'admin-form__label'
+      = user_form.text_field :position,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:position].empty? }"
+      - if user.errors[:position]
+        p.admin-form__error= user.errors.full_messages_for(:position).first
+
+.row.mt-3
+  .col-sm-12.col-md-6
+    .admin-form__group.admin-form__group
+      = user_form.label :email, class: 'admin-form__label'
+      = user_form.text_field :email,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:email].empty? }"
+      - if user.errors[:email]
+        p.admin-form__error= user.errors.full_messages_for(:email).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :password, class: 'admin-form__label'
+      = user_form.password_field :password,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:password].empty? }"
+      - if user.errors[:password]
+        p.admin-form__error= user.errors.full_messages_for(:password).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :password_confirmation, class: 'admin-form__label'
+      = user_form.password_field :password_confirmation,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:password_confirmation].empty? }"
+      - if user.errors[:password_confirmation]
+        p.admin-form__error= user.errors.full_messages_for(:password_confirmation).first
+
+.row.mt-3
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :company, class: 'admin-form__label'
+      = user_form.text_field :company,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:company].empty? }"
+      - if user.errors[:company]
+        p.admin-form__error= user.errors.full_messages_for(:company).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :country, class: 'admin-form__label'
+      = user_form.text_field :country,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:country].empty? }"
+      - if user.errors[:country]
+        p.admin-form__error= user.errors.full_messages_for(:country).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :city, class: 'admin-form__label'
+      = user_form.text_field :city,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:city].empty? }"
+      - if user.errors[:city]
+        p.admin-form__error= user.errors.full_messages_for(:city).first
+  .col-sm-12.col-md-3
+    .admin-form__group.admin-form__group
+      = user_form.label :address, class: 'admin-form__label'
+      = user_form.text_field :address,
+              class: "admin-form__input #{ 'admin-form__input--error' unless user.errors[:address].empty? }"
+      - if user.errors[:address]
+        p.admin-form__error= user.errors.full_messages_for(:address).first
