@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def admin?
     is_a? Admin
   end
+
+  def role
+    self.class.name
+  end
+
+  def self.policy_class
+    Admin::UserPolicy
+  end
 end

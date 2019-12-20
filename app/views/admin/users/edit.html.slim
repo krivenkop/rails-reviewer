@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-sm-12
+      .admin-list-panel
+        h1.admin-list-panel__title
+          | edit user #
+          = user.id
+        = link_to 'Back to list', admin_users_path, class: 'admin-list-panel__btn'
+
+  .row
+    .col-sm-12
+      .admin-form__container
+        = render 'edit_form'
