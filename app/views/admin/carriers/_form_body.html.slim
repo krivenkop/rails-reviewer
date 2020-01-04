@@ -1,0 +1,8 @@
+.row
+  .col-sm-12
+    .admin-form__group.admin-form__group
+      = carrier_form.label :name, class: 'admin-form__label'
+      = carrier_form.text_field :name,
+              class: "admin-form__input #{ 'admin-form__input--error' unless carrier.errors[:name].empty? }"
+      - if carrier.errors[:name]
+        p.admin-form__error= carrier.errors.full_messages_for(:name).first
