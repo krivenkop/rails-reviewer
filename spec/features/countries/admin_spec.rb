@@ -6,7 +6,7 @@ feature "Add new country via admin panel", %q{
   user need to login on website and be admin
 } do
   context "User is admin" do
-    given(:admin) { create(:user, :admin) }
+    given(:admin) { create(:admin) }
     background { sign_in admin }
 
     scenario "Admin see an empty list if no items in db" do
