@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: carriers
+#
+#  id         :bigint           not null, primary key
+#  name       :string(255)
+#  slug       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 FactoryBot.define do
   factory :carrier do
     name { "Name" }
