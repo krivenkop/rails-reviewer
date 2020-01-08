@@ -1,0 +1,7 @@
+tr.admin-list__item
+  td = carrier.id
+  td = carrier.name
+  td = carrier.slug
+  td
+    = link_to 'Destroy', admin_carrier_path(carrier), method: :delete, class: 'admin-list__btn admin-list__btn--del',
+            data: {confirm: "Are you sure?"}

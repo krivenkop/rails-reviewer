@@ -1,0 +1,33 @@
+section.users
+  .container
+    .row
+      .col-sm-12
+        .admin-list-panel
+          h1.admin-list-panel__title Carriers
+
+    .row
+      .col-md-8
+        .admin-list.carriers
+          - unless carriers.empty?
+            table#admin-carriers-table.table
+              thead
+                tr
+                  th ID
+                  th Name
+                  th Slug
+                  th Actions
+              tbody
+                = render carriers
+            .admin-list__pagination.admin-pagination
+              = paginate carriers, views_prefix: 'admin'
+          - else
+            h2.admin-list__empty No items
+
+      .col-md-4
+        .admin-form__container
+          = form_with model: [:admin, carrier], local: true, class: 'admin__form admin-form' do |carrier_form|
+            = render 'form_body', carrier_form: carrier_form, carrier: carrier
+            .row
+              .col-sm-12
+                .d-flex.justify-content-end
+                  = carrier_form.submit 'Add', class: 'admin-form__submit'

@@ -4,10 +4,13 @@ Rails.application.routes.draw do
 
     resources :countries, :users, constraints: { id: /[0-9]+/ },
               except: [:show]
+
+    resources :carriers, constraints: { id: /[0-9]+/ },
+              only: [:index, :create, :destroy]
     get 'countries/update-all', to: 'countries#update_all', as: 'update_all'
   end
-  root to: 'home#index'
 
+  root to: 'home#index'
 
   devise_for :users, path: '',
              path_names: { sign_out: :logout, sign_in: :login },

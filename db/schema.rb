@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_31_122924) do
+ActiveRecord::Schema.define(version: 2019_12_31_122925) do
 
   create_table "carriers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2019_12_31_122924) do
     t.string "alpha_three_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.bigint "author_id"
+    t.bigint "country_from_id"
+    t.bigint "country_to_id"
+    t.string "city_from"
+    t.string "city_to"
+    t.bigint "carrier_id"
+    t.integer "rating", unsigned: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_reviews_on_author_id"
+    t.index ["carrier_id"], name: "index_reviews_on_carrier_id"
+    t.index ["country_from_id"], name: "index_reviews_on_country_from_id"
+    t.index ["country_to_id"], name: "index_reviews_on_country_to_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -58,4 +76,8 @@ ActiveRecord::Schema.define(version: 2019_12_31_122924) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "reviews", "carriers"
+  add_foreign_key "reviews", "countries", column: "country_from_id"
+  add_foreign_key "reviews", "countries", column: "country_to_id"
+  add_foreign_key "reviews", "users", column: "author_id"
 end
