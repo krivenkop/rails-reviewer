@@ -16,8 +16,6 @@ header.header
                 = active_link_with_block admin_index_path, class: 'nav__link', active: 'nav__link--active' do
                   = fa_icon 'user-o'
                   span.nav__link-text Admin
-              li.nav__item
-                = link_to 'Logout', destroy_user_session_path, class: 'nav__link', method: :delete
         .d-flex.justify-content-end
           .header__notify.notify.notify--active
             = fa_icon 'bell-o', class: 'notify__icon'
@@ -29,3 +27,8 @@ header.header
               p.user-card__type
                 | Pro
             = fa_icon 'chevron-down', class: 'user-card__down'
+
+            .user-card__profile-dropdown.profile-dropdown.profile-dropdown--hidden
+              ul.profile-dropdown__list
+                li.profile-dropdown__item
+                  = link_to 'Logout', destroy_user_session_path, class: 'profile-dropdown__link', method: :delete
