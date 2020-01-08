@@ -53,6 +53,6 @@ class User < ApplicationRecord
   end
 
   def self.policy_class
-    Admin::UserPolicy
+    UserPolicy
   end
 end

@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   def index
     @users = policy_scope(
         User,
-        policy_scope_class: Admin::UserPolicy::Scope
+        policy_scope_class: UserPolicy::Scope
     ).page(params[:page]).per(10)
   end
 
@@ -25,7 +25,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    authorize user
+    authorize [user]
   end
 
   def update

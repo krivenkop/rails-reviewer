@@ -1,4 +1,4 @@
-class Admin::UserPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -15,11 +15,11 @@ class Admin::UserPolicy < ApplicationPolicy
   end
 
   def update?
-    admin?
+    admin? || @user == record
   end
 
   def destroy?
-    admin?
+    admin? || @user == record
   end
 
   private
