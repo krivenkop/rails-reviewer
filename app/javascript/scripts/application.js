@@ -9,7 +9,9 @@ export default class Application {
     }
 
     loadComponents() {
-        this.components['profile-dropdown'] = new ProfileDropdown('.profile-dropdown', this.components);
+        this.components['profile-dropdown'] = new ProfileDropdown('.profile-dropdown', this.components, {
+            hiddenClass: 'profile-dropdown--hidden'
+        });
         this.components['user-card'] = new UserCard('.user-card', this.components);
     }
 }

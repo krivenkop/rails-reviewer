@@ -31,4 +31,5 @@ header.header
             .user-card__profile-dropdown.profile-dropdown.profile-dropdown--hidden
               ul.profile-dropdown__list
                 li.profile-dropdown__item
+                  = link_to 'Profile', profile_my_path, class: 'profile-dropdown__link'
                   = link_to 'Logout', destroy_user_session_path, class: 'profile-dropdown__link', method: :delete

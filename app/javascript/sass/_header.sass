@@ -2,7 +2,6 @@
   height: $header-height
   background-color: #fff
   color: #444444
-  box-shadow: $default-shadow
 
   &__auth-btn
     align-self: center
@@ -39,9 +38,10 @@
     line-height: 70px
     height: $header-height
     padding: 0 15px
-    color: #999999
+    color: #BAD4EB
     text-decoration: none
-    transition: background-color 0.4s linear
+    transition: all 0.4s linear
+    transition-property: background-color, color
     &--active
       &::after
         content: ''
@@ -53,8 +53,11 @@
         bottom: 0
     
     &:hover
+      color: #8c9ceb
+      text-decoration: none
       background-color: #efefef
-      transition: background-color 0.4s linear
+      transition: all 0.4s linear
+      transition-property: background-color, color
 
 
   &__link-text
@@ -129,7 +132,7 @@
     z-index: 1
     box-shadow: $default-shadow
     border: 1px solid $border-lightgrey
-    min-width: 150px
+    min-width: 100%
 
 .notify
   position: relative

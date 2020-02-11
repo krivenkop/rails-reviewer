@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :profile do
+    get 'my/index'
+    get 'my/edit'
+    get 'my/update'
+  end
   namespace :admin do
     get '/', to: 'home#index', as: 'index'
 
@@ -8,6 +13,11 @@ Rails.application.routes.draw do
     resources :carriers, constraints: { id: /[0-9]+/ },
               only: [:index, :create, :destroy]
     get 'countries/update-all', to: 'countries#update_all', as: 'update_all'
+  end
+
+  scope '/profile' do
+    get '/', to: 'profile#show', as: 'profile_my'
+    get '/:id', to: 'profile#show', as: 'profile_show'
   end
 
   root to: 'home#index'

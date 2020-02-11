@@ -1,8 +1,8 @@
 import Component from './component';
 
 export default class UserCard extends Component {
-    constructor(selector, components) {
-        super(selector, components);
+    constructor(selector, components, settings = {}) {
+        super(selector, components, settings);
     }
 
     setEventListeners() {
